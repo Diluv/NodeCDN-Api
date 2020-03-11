@@ -1,0 +1,59 @@
+{
+  "code": "nodecdn.status",
+  "message": "Successfully retrieved status information.",
+  "success": true,
+  "data": {
+    "stats": {
+      "Chuck": {
+        "status": "ready",
+        "time": 1583902001,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Bruce": {
+        "status": "ready",
+        "time": 1583901999,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Emma": {
+        "status": "ready",
+        "time": 1583901999,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Dave": {
+        "status": "ready",
+        "time": 1583901999,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Adam": {
+        "status": "ready",
+        "time": 1583901999,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "master": {
+        "status": "ready",
+        "time": 1583893134,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Bill": {
+        "status": "ready",
+        "time": 1583902001,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Lisa": {
+        "status": "ready",
+        "time": 1583902002,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Beth": {
+        "status": "ready",
+        "time": 1583902007,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      },
+      "Bob": {
+        "status": "ready",
+        "time": 1583902000,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      }
+    }
+  }
+}

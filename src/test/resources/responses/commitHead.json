@@ -1,0 +1,27 @@
+{
+  "code": "nodecdn.commit_get_success",
+  "message": "Successfully retrieved commit by given ID.",
+  "success": true,
+  "data": {
+    "commit": {
+      "author": "John Doe",
+      "container": "containerName",
+      "data": {
+        "progress": "0",
+        "rate": "0.00 kB/s",
+        "remaining": "0:00:06",
+        "report": {
+          "rate": "597,274.94",
+          "received": "5,073,102",
+          "sent": "3,735",
+          "speedup": "6,695.83"
+        }
+      },
+      "log": "receiving incremental file list\n",
+      "id": "l6U7l0i0e49657Cx0L8vdJDiNuzEeX1Y",
+      "message": "Custom commit message",
+      "status": "success",
+      "time": "2014-11-17T06:41:21.165Z"
+    }
+  }
+}

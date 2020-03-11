@@ -1,0 +1,66 @@
+{
+  "code": "nodecdn.commits_success",
+  "message": "Successfully listed commits.",
+  "success": true,
+  "data": {
+    "commits": [
+      {
+        "author": "John Doe",
+        "container": "containerName",
+        "data": {
+          "progress": "0",
+          "rate": "0.00 kB/s",
+          "remaining": "0:00:06",
+          "report": {
+            "rate": "597,274.94",
+            "received": "5,073,102",
+            "sent": "3,735",
+            "speedup": "6,695.83"
+          }
+        },
+        "id": "l6U7l0i0e49657Cx0L8vdJDiNuzEeX1Y",
+        "message": "Custom commit message",
+        "status": "success",
+        "time": "2014-11-17T06:41:21.165Z"
+      },
+      {
+        "author": "John Doe",
+        "container": "containerName",
+        "data": {
+          "progress": "0",
+          "rate": "6.21 MB/s",
+          "remaining": "0:00:10",
+          "report": {
+            "rate": "1,706,724.89",
+            "received": "22,793,340",
+            "sent": "247,446",
+            "speedup": "1,475.37"
+          }
+        },
+        "id": "KE1UAOSryxi03oqjYLi28OHX1lNOOUSq",
+        "message": "Custom commit message",
+        "status": "success",
+        "time": "2014-11-17T06:35:24.454Z"
+      },
+      {
+        "author": "John Doe",
+        "container": "containerName",
+        "data": {
+          "progress": "0",
+          "rate": "0.00 kB/s",
+          "remaining": "0:00:06",
+          "report": {
+            "rate": "598,388.82",
+            "received": "5,082,523",
+            "sent": "3,782",
+            "speedup": "6,689.03"
+          }
+        },
+        "id": "mQsVHnNIEi3CPgRljN8gUUZp3NFqpX3d",
+        "message": "Custom commit message",
+        "status": "success",
+        "time": "2014-11-16T21:21:19.499Z"
+      }
+    ]
+  }
+}

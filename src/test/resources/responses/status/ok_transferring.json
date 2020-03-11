@@ -1,0 +1,42 @@
+{
+  "code": "nodecdn.status",
+  "message": "Successfully retrieved status information.",
+  "success": true,
+  "data": {
+    "stats": {
+      "Joe": {
+        "status": "ready",
+        "time": 1416205869,
+        "head": "jJDOIWzPvlVKcZeLXE1TSRG0erCxVwXm"
+      },
+      "Sal": {
+        "status": "ready",
+        "time": 1416205861,
+        "head": "jJDOIWzPvlVKcZeLXE1TSRG0erCxVwXm"
+      },
+      "James": {
+        "status": "ready",
+        "time": 1416205861,
+        "head": "jJDOIWzPvlVKcZeLXE1TSRG0erCxVwXm"
+      },
+      "Jon": {
+        "status": "ready",
+        "time": 1416205870,
+        "head": "jJDOIWzPvlVKcZeLXE1TSRG0erCxVwXm"
+      },
+      "master": {
+        "report": {
+          "received": 0,
+          "sent": 0,
+          "rate": 0,
+          "speedup": 0
+        },
+        "remaining": "calculating...",
+        "status": "committing",
+        "log": "",
+        "rate": "0.00MB/s",
+        "progress": 0
+      }
+    }
+  }
+}

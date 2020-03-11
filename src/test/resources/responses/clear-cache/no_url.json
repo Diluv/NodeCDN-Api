@@ -1,0 +1,14 @@
+{
+  "code": "express.validation",
+  "message": "There was a problem with your request. Please check the errors provided.",
+  "success": false,
+  "data": {
+    "fields": {
+      "urls": {
+        "message": "\"urls\" is required",
+        "type": "any.required"
+      }
+    }
+  },
+  "error": false
+}

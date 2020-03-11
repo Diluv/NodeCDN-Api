@@ -1,0 +1,16 @@
+{
+  "code": "nodecdn.cloudflare_cache.clear.success",
+  "message": "Successfully cleared Cloudflare cache for given URLs.",
+  "success": true,
+  "data": {
+    "result": {
+      "id": "81478a30c327d27609be7f0744b9521c"
+    },
+    "success": true,
+    "errors": [],
+    "messages": [],
+    "cleared_urls": [
+      "https://download.nodecdn.net/containers/diluvstaging/test.txt"
+    ]
+  }
+}

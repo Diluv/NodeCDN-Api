@@ -1,0 +1,33 @@
+{
+  "code": "nodecdn.status",
+  "message": "Successfully retrieved status information.",
+  "success": true,
+  "data": {
+    "stats": {
+      "Joe": {
+        "status": "offline",
+        "time": 1416205866
+      },
+      "Sal": {
+        "status": "ready",
+        "time": 1416205861,
+        "head": "jJDOIWzPvlVKcZeLXE1TSRG0erCxVwXm"
+      },
+      "James": {
+        "status": "ready",
+        "time": 1416205861,
+        "head": "jJDOIWzPvlVKcZeLXE1TSRG0erCxVwXm"
+      },
+      "Jon": {
+        "status": "ready",
+        "time": 1416205870,
+        "head": "jJDOIWzPvlVKcZeLXE1TSRG0erCxVwXm"
+      },
+      "master": {
+        "status": "ready",
+        "time": 1583893134,
+        "head": "5fd57d701153aad31a83e0f74039e1b7"
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+plugins {
+    id 'java'
+    id 'signing'
+    id 'io.codearte.nexus-staging' version '0.21.2'
+    id "de.marcphilipp.nexus-publish" version "0.4.0"
+}
+
+version = "${project_version}" + (isSnapshot() ? '+' + getBuildNumber() : '')
+description = 'An API lib to make requests to NodeCDN'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.8'
+    implementation group: 'io.github.openfeign', name: 'feign-gson', version: '10.8'
+    implementation group: 'io.github.openfeign', name: 'feign-slf4j', version: '10.8'
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.0'
+    testImplementation group: 'io.github.openfeign', name: 'feign-mock', version: '10.8'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    description = 'Creates a JAR containing the source code.'
+    from sourceSets.main.allSource
+    archiveClassifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    description = 'Creates a JAR containing the JavaDocs.'
+    from javadoc.destinationDir
+    archiveClassifier = 'javadoc'
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+jar {
+    manifest {
+        attributes([
+                'Timestamp'               : System.currentTimeMillis(),
+                'Specification-Title'     : project.archivesBaseName,
+                'Specification-Vendor'    : project.vendor,
+                'Specification-Version'   : project.version,
+                'Implementation-Title'    : project.archivesBaseName,
+                'Implementation-Version'  : project.version,
+                'Implementation-Vendor'   : project.vendor,
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})"
+        ])
+    }
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    ext."signing.gnupg.keyName" = "A35B3CEC"
+}
+
+signing {
+    useGpgCmd()
+    sign publishing.publications
+}
+
+tasks.withType(Sign) {
+    onlyIf { !isSnapshot() }
+}
+
+nexusStaging {
+    packageGroup = 'com.diluv'
+    numberOfRetries = 40
+    delayBetweenRetriesInMillis = 5000
+}
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            username = System.getenv("OSSRH_USERNAME")
+            password = System.getenv("OSSRH_PASSWORD")
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            group = project.group
+            artifactId = project.name
+            version = project.version
+
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+
+            pom {
+                name = project.name
+                description = project.description
+                url = 'https://github.com/Diluv/NodeCDN-Api'
+
+                scm {
+                    connection = 'scm:git:git://github.com/Diluv/NodeCDN-Api.git'
+                    developerConnection = 'scm:git:ssh://github.com/Diluv/NodeCDN-Api.git'
+                    url = 'https://github.com/Diluv/NodeCDN-Api'
+                }
+
+                licenses {
+                    license {
+                        name = 'GNU Lesser General Public License v2.1'
+                        url = 'https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'lclc98'
+                        name = 'lclc98'
+                        email = 'lclc98@lclc98.com'
+                    }
+                }
+            }
+        }
+    }
+}
+
+nexusStaging {
+    username = System.getenv("OSSRH_USERNAME")
+    password = System.getenv("OSSRH_PASSWORD")
+}
+
+static String getBuildNumber() {
+    return System.getenv("BUILD_NUMBER") ?: "0"
+}
+
+static boolean isSnapshot() {
+    String ref = System.getenv("GITHUB_REF");
+    if (ref != null && ref.startsWith("refs/tags/v")) {
+        return false
+    }
+    return true
+}
