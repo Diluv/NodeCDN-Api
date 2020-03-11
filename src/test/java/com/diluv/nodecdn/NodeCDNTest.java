@@ -1,7 +1,6 @@
 package com.diluv.nodecdn;
 
 import com.diluv.nodecdn.request.RequestClearCache;
-import com.diluv.nodecdn.request.RequestCommitBuilder;
 import com.diluv.nodecdn.response.Response;
 import com.diluv.nodecdn.response.clearcache.ResponseClearCache;
 import com.diluv.nodecdn.response.commits.head.ResponseCommitsHead;

@@ -7,11 +7,18 @@ import java.util.List;
 
 public class ResponseClearCache {
 
-    @SerializedName("result")
     @Expose
     private Result result;
 
-    @SerializedName("cleared_urls")
     @Expose
+    @SerializedName("cleared_urls")
     private List<String> clearedUrls;
+
+    public Result getResult() {
+        return this.result;
+    }
+
+    public List<String> getClearedUrls() {
+        return this.clearedUrls;
+    }
 }

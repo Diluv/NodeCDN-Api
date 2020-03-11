@@ -1,35 +1,56 @@
 package com.diluv.nodecdn.response.commits;
 
+import com.diluv.nodecdn.response.report.Report;
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class Commit {
 
-    @SerializedName("author")
     @Expose
-    private String author = "";
+    private String author;
 
-    @SerializedName("container")
     @Expose
-    private String container = "";
+    private String container;
 
-    @SerializedName("data")
     @Expose
     private Report data;
 
-    @SerializedName("id")
     @Expose
-    private String id = "";
+    private String id;
 
-    @SerializedName("message")
     @Expose
-    private String message = "";
+    private String message;
 
-    @SerializedName("status")
     @Expose
-    private String status = "";
+    private String status;
 
-    @SerializedName("time")
     @Expose
-    private String time = "";
+    private String time;
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public String getContainer() {
+        return this.container;
+    }
+
+    public Report getData() {
+        return this.data;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getTime() {
+        return this.time;
+    }
 }
