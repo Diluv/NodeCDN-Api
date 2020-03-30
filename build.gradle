@@ -22,7 +22,7 @@ dependencies {
     implementation group: 'io.github.openfeign', name: 'feign-slf4j', version: '10.8'
 
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.1'
-    testImplementation group: 'io.github.openfeign', name: 'feign-mock', version: '10.8'
+    testImplementation group: 'io.github.openfeign', name: 'feign-mock', version: '10.9'
 }
 
 test {
