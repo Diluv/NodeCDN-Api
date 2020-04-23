@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.9'
     implementation group: 'io.github.openfeign', name: 'feign-gson', version: '10.9'
-    implementation group: 'io.github.openfeign', name: 'feign-slf4j', version: '10.9'
+    implementation group: 'io.github.openfeign', name: 'feign-slf4j', version: '11.0'
 
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
     testImplementation group: 'io.github.openfeign', name: 'feign-mock', version: '11.0'
