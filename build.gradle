@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '11.0'
+    implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '11.1'
     implementation group: 'io.github.openfeign', name: 'feign-gson', version: '11.0'
     implementation group: 'io.github.openfeign', name: 'feign-slf4j', version: '11.0'
 
