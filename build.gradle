@@ -1,8 +1,8 @@
 plugins {
     id 'java'
-    id 'signing'
-    id 'io.codearte.nexus-staging' version '0.21.2'
-    id "de.marcphilipp.nexus-publish" version "0.4.0"
+    id "signing"
+    id "maven-publish"
+    id "io.github.gradle-nexus.publish-plugin" version "1.1.0"
 }
 
 version = "${project_version}" + (isSnapshot() ? '+' + getBuildNumber() : '')
@@ -12,17 +12,16 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '11.0'
-    implementation group: 'io.github.openfeign', name: 'feign-gson', version: '11.0'
-    implementation group: 'io.github.openfeign', name: 'feign-slf4j', version: '11.0'
+    implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '11.2'
+    implementation group: 'io.github.openfeign', name: 'feign-gson', version: '11.2'
+    implementation group: 'io.github.openfeign', name: 'feign-slf4j', version: '11.2'
 
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
-    testImplementation group: 'io.github.openfeign', name: 'feign-mock', version: '11.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.2'
+    testImplementation group: 'io.github.openfeign', name: 'feign-mock', version: '11.2'
 }
 
 test {
@@ -68,25 +67,26 @@ gradle.taskGraph.whenReady { taskGraph ->
 
 signing {
     useGpgCmd()
-    sign publishing.publications
+    sign configurations.archives
 }
 
 tasks.withType(Sign) {
     onlyIf { !isSnapshot() }
 }
 
-nexusStaging {
-    packageGroup = 'com.diluv'
-    numberOfRetries = 40
-    delayBetweenRetriesInMillis = 5000
-}
-
 nexusPublishing {
+    packageGroup = "com.diluv"
     repositories {
         sonatype {
+            stagingProfileId = "1282c5e0d73bd2"
             username = System.getenv("OSSRH_USERNAME")
             password = System.getenv("OSSRH_PASSWORD")
         }
+    }
+
+    transitionCheckOptions {
+        maxRetries.set(40)
+        delayBetween.set(java.time.Duration.ofMillis(5000))
     }
 }
 
@@ -129,11 +129,6 @@ publishing {
             }
         }
     }
-}
-
-nexusStaging {
-    username = System.getenv("OSSRH_USERNAME")
-    password = System.getenv("OSSRH_PASSWORD")
 }
 
 static String getBuildNumber() {
