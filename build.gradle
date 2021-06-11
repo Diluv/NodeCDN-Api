@@ -24,9 +24,9 @@ dependencies {
     testImplementation group: 'io.github.openfeign', name: 'feign-mock', version: '11.2'
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     description = 'Creates a JAR containing the source code.'

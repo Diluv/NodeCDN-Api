@@ -16,6 +16,8 @@ import feign.mock.MockTarget;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.diluv.nodecdn.NodeCDN.GSON;
+
 public class NodeCDNTest {
 
     private static NodeCDNEndpoints nodeCDN;
@@ -30,8 +32,8 @@ public class NodeCDNTest {
 
         nodeCDN = Feign.builder()
                 .client(mockClient)
-                .encoder(new GsonEncoder(NodeCDN.GSON))
-                .decoder(new GsonDecoder(NodeCDN.GSON))
+                .encoder(new GsonEncoder(GSON))
+                .decoder(new GsonDecoder(GSON))
                 .target(new MockTarget<>(NodeCDNEndpoints.class));
     }
 
